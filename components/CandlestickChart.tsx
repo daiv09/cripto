@@ -50,9 +50,9 @@ const CandlestickChart = ({
 
     startTransition(async () => {
       setPeriod(newPeriod);
-      setLoading(true);
+      // setLoading(true);
       await fetchOHLCData(newPeriod);
-      setLoading(false);
+      // setLoading(false);
     });
   };
 

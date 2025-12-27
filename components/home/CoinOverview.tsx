@@ -1,9 +1,9 @@
-import React from 'react';
-import { fetcher } from '@/lib/coingecko.actions';
-import Image from 'next/image';
-import { formatCurrency } from '@/lib/utils';
-import { CoinOverviewFallback } from './fallback';
-import CandlestickChart from '@/components/CandlestickChart';
+import React from "react";
+import { fetcher } from "@/lib/coingecko.actions";
+import Image from "next/image";
+import { formatCurrency } from "@/lib/utils";
+import { CoinOverviewFallback } from "./fallback";
+import CandlestickChart from "@/components/CandlestickChart";
 
 const CoinOverview = async () => {
   let coin, coinOHLCData;
@@ -13,7 +13,7 @@ const CoinOverview = async () => {
         dex_pair_format: "symbol",
       }),
       fetcher<OHLCData[]>("/coins/bitcoin/ohlc", {
-        vs_currency: "usd",
+        vs_currency: "inr",
         days: 1,
         precision: "full",
       }),
@@ -23,19 +23,24 @@ const CoinOverview = async () => {
       <div id="coin-overview">
         <CandlestickChart data={coinOHLCData} coinId="bitcoin">
           <div className="header pt-2">
-            <Image src={coin.image.large} alt={coin.name} width={56} height={56} />
+            <Image
+              src={coin.image.large}
+              alt={coin.name}
+              width={56}
+              height={56}
+            />
             <div className="info">
               <p>
                 {coin.name} / {coin.symbol.toUpperCase()}
               </p>
-              <h1>{formatCurrency(coin.market_data.current_price.usd)}</h1>
+              <h1>{formatCurrency(coin.market_data.current_price.inr)}</h1>
             </div>
           </div>
         </CandlestickChart>
       </div>
     );
   } catch (error) {
-    console.error('Error fetching coin overview:', error);
+    console.error("Error fetching coin overview:", error);
     return <CoinOverviewFallback />;
   }
 };
