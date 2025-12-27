@@ -1,7 +1,6 @@
 import {
     Table,
     TableBody,
-    TableCaption,
     TableCell,
     TableHead,
     TableHeader,
@@ -11,7 +10,15 @@ import {
 import { cn } from "@/lib/utils"
 
 const DataTable = <T,>({
-    columns, data, rowKey, tableClassName, headerRowClassName, headerCellClassName, bodyRowClassName, bodyCellClassName, headerClassName
+    columns, 
+    data, 
+    rowKey, 
+    tableClassName, 
+    headerClassName,
+    headerRowClassName,
+    headerCellClassName,
+    bodyRowClassName,
+    bodyCellClassName,
 }: DataTableProps<T>) => {
     return (
         <div>
@@ -19,7 +26,7 @@ const DataTable = <T,>({
                 <TableHeader className={headerClassName}>
                     <TableRow className={cn('hover:bg-transparent!', headerRowClassName)}>
                         {columns.map((column, i) => (
-                            <TableHead key={i} className={cn('bg-dark-400 py-4 text-purple-100 first:pl-5 last:pr-5', headerCellClassName)}>
+                            <TableHead key={i} className={cn('bg-dark-400 py-4 text-purple-100 first:pl-5 last:pr-5', headerCellClassName, column.headClassName)}>
                                 {column.header}
                             </TableHead>
                         ))}
@@ -29,7 +36,7 @@ const DataTable = <T,>({
                     {data.map((row, rowInd) => (
                         <TableRow key={rowKey(row,rowInd)} className={cn('overflow-hidden rounded-lg border-b border-purple-100/5 hover:bg-dark-400/30! relative', bodyRowClassName)}>
                             {columns.map((col, colInd) => (
-                                <TableCell key={colInd} className={cn('py-4 first:pl-5 last:pr-5')}>
+                                <TableCell key={colInd} className={cn('py-4 first:pl-5 last:pr-5',bodyCellClassName, col.cellClassName)}>
                                     {col.cell(row,rowInd)}
                                 </TableCell>
                             ))}

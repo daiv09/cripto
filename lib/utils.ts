@@ -19,7 +19,7 @@ export function formatCurrency(
   if (showSymbol === undefined || showSymbol === true) {
     return value.toLocaleString(undefined, {
       style: 'currency',
-      currency: currency?.toUpperCase() || 'USD',
+      currency: currency?.toUpperCase() || 'INR',
       minimumFractionDigits: digits ?? 2,
       maximumFractionDigits: digits ?? 2,
     });
