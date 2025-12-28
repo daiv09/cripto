@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { Search, X, TrendingUp, Loader2, ChevronRight } from "lucide-react";
 // 1. Import the Server Actions we created
 import { getTrendingCoins, searchCoins } from "@/lib/coingecko.actions";
+import Image from "next/image";
 
 interface SearchCommandProps {
   isOpen: boolean;
@@ -216,10 +217,12 @@ function ResultItem({
       onClick={onSelect}
       className="w-full flex items-center gap-3 px-3 py-3 hover:bg-slate-800 rounded-lg transition-all group text-left outline-none focus:bg-slate-800"
     >
-      <img
+      <Image
         src={coin.thumb}
         alt={coin.name}
-        className="w-7 h-7 rounded-full bg-slate-800 object-cover"
+        width={36}
+        height={36}
+        className="rounded-full bg-slate-800 object-cover"
         onError={(e) => {
           // Fallback image if source fails
           (e.target as HTMLImageElement).src =
