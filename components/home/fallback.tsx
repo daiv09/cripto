@@ -51,8 +51,8 @@ export const TrendingCoinsFallback = () => {
       <h4>Trending Coins</h4>
       <DataTable
         data={dummyData}
-        columns={columns as any}
-        rowKey={(item: any) => item.id}
+        columns={columns}
+        rowKey={(item) => item.id}
         tableClassName="trending-coins-table"
       />
     </div>
@@ -107,7 +107,7 @@ export const CategoriesFallback = () => {
       <DataTable
         data={dummyData}
         columns={columns}
-        rowKey={(item: any) => item.id}
+        rowKey={(item) => item.id}
         tableClassName="mt-3"
       />
     </div>

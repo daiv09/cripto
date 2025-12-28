@@ -6,7 +6,9 @@ import { CoinOverviewFallback } from "./fallback";
 import CandlestickChart from "@/components/CandlestickChart";
 
 const CoinOverview = async () => {
-  let coin, coinOHLCData;
+  let coin: CoinDetailsData | undefined;
+  let coinOHLCData: OHLCData[] | undefined;
+
   try {
     [coin, coinOHLCData] = await Promise.all([
       fetcher<CoinDetailsData>("/coins/bitcoin", {
@@ -18,31 +20,35 @@ const CoinOverview = async () => {
         precision: "full",
       }),
     ]);
-
-    return (
-      <div id="coin-overview">
-        <CandlestickChart data={coinOHLCData} coinId="bitcoin">
-          <div className="header pt-2">
-            <Image
-              src={coin.image.large}
-              alt={coin.name}
-              width={56}
-              height={56}
-            />
-            <div className="info">
-              <p>
-                {coin.name} / {coin.symbol.toUpperCase()}
-              </p>
-              <h1>{formatCurrency(coin.market_data.current_price.inr)}</h1>
-            </div>
-          </div>
-        </CandlestickChart>
-      </div>
-    );
   } catch (error) {
     console.error("Error fetching coin overview:", error);
     return <CoinOverviewFallback />;
   }
+
+  if (!coin || !coinOHLCData) {
+    return <CoinOverviewFallback />;
+  }
+
+  return (
+    <div id="coin-overview">
+      <CandlestickChart data={coinOHLCData} coinId="bitcoin">
+        <div className="header pt-2">
+          <Image
+            src={coin.image.large}
+            alt={coin.name}
+            width={56}
+            height={56}
+          />
+          <div className="info">
+            <p>
+              {coin.name} / {coin.symbol.toUpperCase()}
+            </p>
+            <h1>{formatCurrency(coin.market_data.current_price.inr)}</h1>
+          </div>
+        </div>
+      </CandlestickChart>
+    </div>
+  );
 };
 
 export default CoinOverview;
