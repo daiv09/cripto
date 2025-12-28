@@ -1,10 +1,20 @@
 "use client";
 
 import { useState, useRef, useEffect, useTransition } from "react";
-import { getChartConfig, getCandlestickConfig, PERIOD_BUTTONS, PERIOD_CONFIG } from "@/constants";
-import { type IChartApi, type ISeriesApi,CandlestickSeries, createChart } from "lightweight-charts";
+import {
+  getChartConfig,
+  getCandlestickConfig,
+  PERIOD_BUTTONS,
+  PERIOD_CONFIG,
+} from "@/constants";
+import {
+  type IChartApi,
+  type ISeriesApi,
+  CandlestickSeries,
+  createChart,
+} from "lightweight-charts";
 import { fetcher } from "@/lib/coingecko.actions";
-import {convertOHLCData} from "@/lib/utils"
+import { convertOHLCData } from "@/lib/utils";
 
 // adjust these to your actual types
 // type Period = "1" | "7" | "30" | "90" | "180" | "365";
@@ -133,7 +143,9 @@ const CandlestickChart = ({
             <button
               key={value}
               className={
-                period === value ? "config-button-active" : "config-button"
+                period === value
+                  ? "config-button-active"
+                  : "config-button hover:text-black"
               }
               onClick={() => handlePeriodChange(value as Period)}
               disabled={isPending}

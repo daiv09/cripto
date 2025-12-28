@@ -66,7 +66,6 @@ const CoinsPagination = ({
 
           </div>
 
-
           <PaginationItem className="pagination-control next">
             <PaginationNext
               onClick={() =>
