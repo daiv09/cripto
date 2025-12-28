@@ -16,7 +16,7 @@ const CandlestickChart = ({
   data,
   coinId,
   height = 360,
-  initialPeriod = "1", // or "daily" if your Period type uses labels
+  initialPeriod = "daily", // or "daily" if your Period type uses labels
 }: CandlestickChartProps) => {
   const chartContainerRef = useRef<HTMLDivElement | null>(null);
   const chartRef = useRef<IChartApi | null>(null);
@@ -30,14 +30,11 @@ const CandlestickChart = ({
     try {
       const config = PERIOD_CONFIG[selectedPeriod];
 
-      const newData = await fetcher<OHLCData[]>(
-        `/coins/${coinId}/ohlc`,
-        {
-          vs_currency: "inr",
-          days: config.days,
-          precision: "full",
-        },
-      );
+      const newData = await fetcher<OHLCData[]>(`/coins/${coinId}/ohlc`, {
+        vs_currency: "inr",
+        days: config.days,
+        precision: "full",
+      });
 
       setOhlcData(newData ?? []);
     } catch (e) {
@@ -60,57 +57,67 @@ const CandlestickChart = ({
     const container = chartContainerRef.current;
     if (!container) return;
 
-    const showTime = ["daily", "weekly", "monthly"].includes(
-      period
-    );
+    const showTime = ["daily", "weekly", "monthly"].includes(period);
 
-    const chart=createChart(container, {
+    const chart = createChart(container, {
       ...getChartConfig(height, showTime),
-      width:container.clientWidth,
-    })
-    const series=chart.addSeries(CandlestickSeries,getCandlestickConfig());
+      width: container.clientWidth,
+    });
+    const series = chart.addSeries(CandlestickSeries, getCandlestickConfig());
 
-    const convertToSeconds=ohlcData.map(
-      (item)=>[Math.floor(item[0]/1000),item[1],item[2],item[3],item[4]] as OHLCData
-    )
+    const convertToSeconds = ohlcData.map(
+      (item) =>
+        [
+          Math.floor(item[0] / 1000),
+          item[1],
+          item[2],
+          item[3],
+          item[4],
+        ] as OHLCData
+    );
 
     series.setData(convertOHLCData(convertToSeconds));
 
-    chart.timeScale().fitContent()
-    
-    chartRef.current=chart;
-    candleSeriesRef.current=series;
+    chart.timeScale().fitContent();
 
-    const observer=new ResizeObserver((entries)=>{
-      if(!entries.length) return;
+    chartRef.current = chart;
+    candleSeriesRef.current = series;
 
-      chart.applyOptions({width:entries[0].contentRect.width})
-    })
+    const observer = new ResizeObserver((entries) => {
+      if (!entries.length) return;
+
+      chart.applyOptions({ width: entries[0].contentRect.width });
+    });
 
     observer.observe(container);
 
-    return ()=>{
+    return () => {
       observer.disconnect();
       chart.remove();
-      chartRef.current=null
-      candleSeriesRef.current=null
-
-    }
+      chartRef.current = null;
+      candleSeriesRef.current = null;
+    };
   }, [height, period]);
 
-  useEffect(()=>{
-    if(!candleSeriesRef.current) return;
+  useEffect(() => {
+    if (!candleSeriesRef.current) return;
 
-    const convertToSeconds=ohlcData.map((item)=>
-      [Math.floor(item[0]/1000), item[1],item[2],item[3],item[4]] as OHLCData
-    )
+    const convertToSeconds = ohlcData.map(
+      (item) =>
+        [
+          Math.floor(item[0] / 1000),
+          item[1],
+          item[2],
+          item[3],
+          item[4],
+        ] as OHLCData
+    );
 
-    const converted=convertOHLCData(convertToSeconds);
+    const converted = convertOHLCData(convertToSeconds);
     candleSeriesRef.current.setData(converted);
 
     chartRef.current?.timeScale().fitContent();
-
-  },[ohlcData, period])
+  }, [ohlcData, period]);
 
   return (
     <div id="candlestick-chart">
@@ -137,11 +144,7 @@ const CandlestickChart = ({
         </div>
       </div>
 
-      <div
-        ref={chartContainerRef}
-        className="chart"
-        style={{ height }}
-      />
+      <div ref={chartContainerRef} className="chart" style={{ height }} />
     </div>
   );
 };
