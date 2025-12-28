@@ -203,7 +203,7 @@
   }
 
   .main-container {
-    @apply py-6 md:py-12 mx-auto px-4 sm:px-6 max-w-360 w-full space-y-6 md:space-y-6;
+    @apply py-6 md:pb-6 md:pt-8 mx-auto px-4 sm:px-6 max-w-360 w-full space-y-6 md:space-y-6;
   }
 
   .badge {
@@ -381,7 +381,7 @@
         @apply font-semibold text-foreground;
 
         a {
-          @apply pl-3 md:pl-6 py-2 flex items-center gap-3 hover:bg-dark-400/20 transition-colors;
+          @apply py-2 flex items-center gap-3 hover:bg-dark-400/20 transition-colors;
 
           img {
             @apply rounded-full size-8 md:size-9 shadow-sm;
@@ -628,7 +628,7 @@
   }
 
   #coins-page {
-    @apply py-12 px-4 sm:px-6 mx-auto max-w-360 size-full items-center gap-10 justify-center;
+    @apply py-2 px-4 sm:px-6 mx-auto max-w-360 size-full items-center gap-10 justify-center;
 
     .content {
       @apply flex flex-col w-full space-y-6;

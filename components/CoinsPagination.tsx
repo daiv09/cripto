@@ -41,39 +41,31 @@ const CoinsPagination = ({
           </PaginationItem>
 
           <div className="pagination-pages">
-            {pageNumbers.map((pageNumber) => (
-              <PaginationItem key={pageNumber}>
-                {
-                  pageNumber === ELLIPSIS ? (
-                    <span className="ellipsis">..</span>
-                  ) : (
-                      <PaginationLink
-                        onClick={() =>
-                          handlePageChange(pageNumber)
-                        }
-                        className={cn(
-                          'page-link', {
-                            'page-link-active': currentPage === pageNumber,
-                          }
-                        )}
-                      >
-                        {pageNumber}  
-                      </PaginationLink>
-                  )
-                }
+            {/* FIX: Add 'index' parameter and use it in the key */}
+            {pageNumbers.map((pageNumber, index) => (
+              <PaginationItem
+                key={pageNumber === ELLIPSIS ? `ellipsis-${index}` : pageNumber}
+              >
+                {pageNumber === ELLIPSIS ? (
+                  <span className="ellipsis">..</span>
+                ) : (
+                  <PaginationLink
+                    onClick={() => handlePageChange(pageNumber as number)}
+                    className={cn("page-link", {
+                      "page-link-active": currentPage === pageNumber,
+                    })}
+                  >
+                    {pageNumber}
+                  </PaginationLink>
+                )}
               </PaginationItem>
             ))}
-
           </div>
 
           <PaginationItem className="pagination-control next">
             <PaginationNext
-              onClick={() =>
-                !isLastPage && handlePageChange(currentPage + 1)
-              }
-              className={
-                isLastPage ? "control-disabled" : "control-button"
-              }
+              onClick={() => !isLastPage && handlePageChange(currentPage + 1)}
+              className={isLastPage ? "control-disabled" : "control-button"}
             />
           </PaginationItem>
         </PaginationContent>
