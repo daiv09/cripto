@@ -106,12 +106,11 @@ export const PERIOD_CONFIG: Record<
 
 export const PERIOD_BUTTONS: { value: Period; label: string }[] = [
   { value: 'daily', label: '1D' },
-  { value: 'weekly', label: '1W' },
+  { value: 'weekly', label: '7D' },
   { value: 'monthly', label: '1M' },
   { value: '3months', label: '3M' },
   { value: '6months', label: '6M' },
-  { value: 'yearly', label: '1Y' },
-  { value: 'max', label: 'Max' },
+  { value: 'yearly', label: '1Y' }
 ];
 
 export const LIVE_INTERVAL_BUTTONS: { value: '1s' | '1m'; label: string }[] = [

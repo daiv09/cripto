@@ -1,5 +1,5 @@
-@import 'tailwindcss';
-@import 'tw-animate-css';
+@import "tailwindcss";
+@import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -42,7 +42,7 @@
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
 
-  /* Brand colors */
+  /* Brand colors - Remapped for Apple Aesthetic */
   --color-dark-900: var(--dark-900);
   --color-dark-700: var(--dark-700);
   --color-dark-500: var(--dark-500);
@@ -57,31 +57,45 @@
 }
 
 :root {
-  --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
+  /* Apple Design: Larger border radius, cleaner lines */
+  --radius: 0.75rem;
+
+  /* Light Mode (Default) - Airy, Off-White, Crisp */
+  --background: oklch(0.985 0.002 247.839); /* System Gray 6 (Light) */
+  --foreground: oklch(0.129 0.014 263.264); /* Almost Black */
+
+  --card: oklch(1 0 0); /* Pure White */
+  --card-foreground: oklch(0.129 0.014 263.264);
+
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.985 0 0);
+  --popover-foreground: oklch(0.129 0.014 263.264);
+
+  --primary: oklch(0.48 0.18 260); /* iOS Blue */
+  --primary-foreground: oklch(1 0 0);
+
+  --secondary: oklch(0.96 0.005 260); /* Very light gray */
+  --secondary-foreground: oklch(0.25 0.02 260);
+
+  --muted: oklch(0.96 0.005 260);
+  --muted-foreground: oklch(0.55 0.02 260); /* Slate Gray */
+
+  --accent: oklch(0.95 0.01 260);
+  --accent-foreground: oklch(0.2 0.02 260);
+
+  --destructive: oklch(0.6 0.15 25); /* Soft Red */
+
+  --border: oklch(0.92 0.005 260); /* Subtle Border */
+  --input: oklch(0.92 0.005 260);
+  --ring: oklch(0.85 0.01 260); /* Focus rings are subtle */
+
+  /* Chart Colors - Pastel & Distinct */
+  --chart-1: oklch(0.6 0.15 250); /* Blue */
+  --chart-2: oklch(0.65 0.15 180); /* Cyan */
+  --chart-3: oklch(0.6 0.15 30); /* Orange */
+  --chart-4: oklch(0.6 0.15 300); /* Purple */
+  --chart-5: oklch(0.6 0.15 140); /* Green */
+
+  --sidebar: oklch(0.985 0.002 247.839);
   --sidebar-foreground: oklch(0.145 0 0);
   --sidebar-primary: oklch(0.205 0 0);
   --sidebar-primary-foreground: oklch(0.985 0 0);
@@ -89,65 +103,97 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+
+  /* Brand Color Remapping for Light Mode 
+     (Repurposing existing variable names for the new palette) 
+  */
+  --dark-900: #f5f5f7; /* Maps to background/body */
+  --dark-700: #f5f5f7; /* Maps to main container backgrounds */
+  --dark-500: #ffffff; /* Maps to Cards (White) */
+  --dark-400: #e5e5ea; /* Maps to Borders/Inputs */
+
+  --purple-600: #007aff; /* iOS Blue (Primary Action) */
+  --purple-100: #6e6e73; /* Muted Text (Slate) */
+
+  --green-500: #34c759; /* Apple Success Green */
+  --green-400: #30d158;
+  --green-300: #e1f8e6; /* Pastel green background */
+
+  --red-500: #ff3b30; /* Apple Destructive Red */
+  --yellow-500: #ffcc00;
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
+  /* macOS Dark Mode - Dark Greys, not pure black */
+  --background: oklch(0.14 0.01 260); /* Almost Black */
+  --foreground: oklch(0.98 0 0);
+
+  --card: oklch(0.18 0.01 260); /* Dark Grey Card */
+  --card-foreground: oklch(0.98 0 0);
+
+  --popover: oklch(0.18 0.01 260);
+  --popover-foreground: oklch(0.98 0 0);
+
+  --primary: oklch(0.6 0.15 250); /* Light Blue */
+  --primary-foreground: oklch(1 0 0);
+
+  --secondary: oklch(0.25 0.02 260);
+  --secondary-foreground: oklch(0.98 0 0);
+
+  --muted: oklch(0.25 0.02 260);
+  --muted-foreground: oklch(0.65 0.02 260);
+
+  --accent: oklch(0.25 0.02 260);
+  --accent-foreground: oklch(0.98 0 0);
+
+  --destructive: oklch(0.6 0.15 25);
+
+  --border: oklch(0.25 0.02 260);
+  --input: oklch(0.25 0.02 260);
+  --ring: oklch(0.4 0.1 260);
+
+  --chart-1: oklch(0.6 0.15 250);
+  --chart-2: oklch(0.65 0.15 180);
+  --chart-3: oklch(0.6 0.15 30);
+  --chart-4: oklch(0.6 0.15 300);
+  --chart-5: oklch(0.6 0.15 140);
+
+  --sidebar: oklch(0.14 0.01 260);
   --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary: oklch(0.6 0.15 250);
   --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent: oklch(0.25 0.02 260);
   --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+  --sidebar-border: oklch(0.25 0.02 260);
+  --sidebar-ring: oklch(0.4 0.1 260);
 
-  /* Brand colors */
-  --dark-900: #000510;
-  --dark-700: #0f1316;
-  --dark-500: #1a2027;
-  --dark-400: #1e2833;
+  /* Brand Color Remapping for Dark Mode */
+  --dark-900: #000000; /* Deep Black */
+  --dark-700: #000000; /* Background */
+  --dark-500: #1c1c1e; /* System Gray 6 Dark (Cards) */
+  --dark-400: #2c2c2e; /* Separators/Inputs */
 
-  --purple-600: #1b254b;
-  --purple-100: #a3aed0;
+  --purple-600: #0a84ff; /* iOS Dark Mode Blue */
+  --purple-100: #98989d; /* Muted Text */
 
-  --green-500: #76da44;
-  --green-400: #2ebe7b;
-  --green-300: #99e39e;
+  --green-500: #30d158;
+  --green-400: #26ab49;
+  --green-300: #133d22;
 
-  --red-500: #ff685f;
-  --yellow-500: #dabe44;
+  --red-500: #ff453a;
+  --yellow-500: #ffd60a;
 }
 
 @layer base {
   * {
-    @apply border-border outline-ring/50;
+    @apply border-border/40 outline-ring/50; /* Softer default borders */
   }
 
   body {
-    @apply bg-dark-700 text-foreground;
+    /* Uses dark-700 which is now Off-White (Light) or Black (Dark).
+      Added antialiasing for crisp text.
+    */
+    @apply bg-dark-700 text-foreground antialiased selection:bg-purple-600/20 selection:text-purple-600;
   }
 }
 
@@ -161,23 +207,26 @@
   }
 
   .badge {
-    @apply font-medium mt-2 h-fit py-1 flex items-center gap-1;
+    @apply font-medium mt-2 h-fit py-1 px-2.5 rounded-full text-xs flex items-center gap-1;
   }
 
   .badge-up {
-    @apply bg-green-600/20! text-green-600!;
+    /* Mapped to softer green background */
+    @apply bg-green-500/10! text-green-500!;
   }
 
   .badge-down {
-    @apply bg-red-500/20! text-red-500!;
+    /* Mapped to softer red background */
+    @apply bg-red-500/10! text-red-500!;
   }
 
   .skeleton {
-    @apply bg-dark-400/60;
+    @apply bg-dark-400/50 animate-pulse rounded-md;
   }
 
   header {
-    @apply border-b border-dark-400 h-20;
+    /* Glassmorphism header */
+    @apply sticky top-0 z-50 border-b border-dark-400/50 h-20 bg-dark-700/80 backdrop-blur-md transition-colors;
 
     .inner {
       @apply flex justify-between items-center h-full;
@@ -187,14 +236,14 @@
       }
 
       nav {
-        @apply flex h-full items-center;
+        @apply flex h-full items-center gap-1;
 
         .nav-link {
-          @apply px-6 py-5 flex items-center transition-all hover:text-white font-medium h-full text-purple-100 cursor-pointer;
+          @apply px-4 py-2 rounded-lg flex items-center transition-all hover:bg-dark-400/50 hover:text-foreground font-medium h-fit text-purple-100 cursor-pointer text-sm;
         }
 
         .nav-link.is-active {
-          @apply text-white;
+          @apply text-foreground bg-dark-400/50 shadow-sm;
         }
 
         .nav-link.is-home {
@@ -205,22 +254,23 @@
   }
 
   #candlestick-chart {
-    @apply p-3 mt-5 rounded-lg bg-dark-500;
+    /* Minimal chart container */
+    @apply p-4 rounded-2xl bg-dark-500 shadow-sm border border-dark-400/30;
 
     .chart-header {
-      @apply flex flex-col gap-3 xl:flex-row xl:items-center mb-4 font-semibold text-[#e6eef8] text-[20px];
+      @apply flex flex-col gap-3 xl:flex-row xl:items-center mb-4 font-semibold text-foreground text-[20px] tracking-tight;
     }
 
     .button-group {
-      @apply flex gap-1 xl:gap-2 items-center;
+      @apply flex gap-1 xl:gap-2 items-center bg-dark-400/30 p-1 rounded-lg w-fit;
     }
 
     .config-button {
-      @apply rounded-sm border-0 cursor-pointer px-2.5 py-2 text-xs xl:text-sm text-purple-100 hover:bg-dark-400 hover:text-white;
+      @apply rounded-md border-0 cursor-pointer px-3 py-1.5 text-xs xl:text-sm text-purple-100 hover:bg-white hover:text-foreground hover:shadow-sm transition-all;
     }
 
     .config-button-active {
-      @apply rounded-sm px-2.5 py-1.5 border-0 cursor-pointer text-sm text-gray-900 bg-green-500;
+      @apply rounded-md px-3 py-1.5 border-0 cursor-pointer text-sm text-white bg-purple-600 shadow-sm font-medium;
     }
 
     .chart {
@@ -229,21 +279,25 @@
   }
 
   #coin-card {
-    @apply bg-dark-500 hover:bg-dark-400/50 transition-all rounded-lg p-5 border border-purple-600/20 hover:border-purple-600/50 cursor-pointer h-fit;
+    /* Removed 'group' from @apply to fix build error. 
+       If you need group hover states for children, you must add className="group" 
+       to the HTML element with id="coin-card" in your React component.
+    */
+    @apply bg-dark-500 hover:bg-dark-500 hover:shadow-md transition-all duration-300 rounded-2xl p-6 border border-dark-400/50 cursor-pointer h-fit shadow-sm;
 
     .header {
-      @apply flex gap-3 mb-4;
+      @apply flex gap-3 mb-4 items-center;
 
       img {
-        @apply size-12 rounded-full;
+        @apply size-12 rounded-full shadow-sm;
       }
 
       h3 {
-        @apply font-semibold text-lg;
+        @apply font-semibold text-lg text-foreground tracking-tight;
       }
 
       p {
-        @apply text-sm text-gray-400 uppercase;
+        @apply text-sm text-purple-100 uppercase font-medium;
       }
     }
 
@@ -251,7 +305,7 @@
       @apply flex justify-between items-center mb-5;
 
       .price {
-        @apply text-xl font-bold;
+        @apply text-2xl font-bold text-foreground tracking-tight;
       }
 
       .change {
@@ -263,40 +317,41 @@
       @apply space-y-3;
 
       .stat-row {
-        @apply flex gap-1 justify-between;
+        @apply flex gap-1 justify-between text-sm;
 
         .label {
-          @apply text-purple-100;
+          @apply text-purple-100 font-medium;
         }
 
         .value {
-          @apply font-medium;
+          @apply font-semibold text-foreground;
         }
       }
     }
   }
 
   #categories {
-    @apply pt-8 mt-5 w-full bg-dark-500 rounded-xl overflow-hidden;
+    /* Clean table container */
+    @apply pt-8 mt-5 w-full bg-dark-500 rounded-2xl shadow-sm border border-dark-400/30 overflow-hidden;
 
     h4 {
-      @apply text-xl md:text-2xl font-semibold mb-2 pl-5;
+      @apply text-xl md:text-2xl font-bold mb-4 pl-6 text-foreground tracking-tight;
     }
 
     .category-cell {
-      @apply pl-5 font-bold;
+      @apply pl-6 font-semibold text-foreground;
     }
 
     .top-gainers-cell {
-      @apply flex gap-1 mr-5;
+      @apply flex gap-1 mr-6;
 
       img {
-        @apply rounded-full py-2;
+        @apply rounded-full py-2 shadow-sm;
       }
     }
 
     .change-header-cell {
-      @apply font-medium;
+      @apply font-medium text-purple-100 text-xs uppercase tracking-wider;
     }
 
     .change-cell {
@@ -304,32 +359,32 @@
     }
 
     .market-cap-cell {
-      @apply font-medium;
+      @apply font-medium text-foreground;
     }
 
     .volume-cell {
-      @apply font-medium;
+      @apply font-medium text-foreground;
     }
   }
 
   #trending-coins {
-    @apply w-full flex flex-col justify-center h-full py-4 bg-dark-500 rounded-xl;
+    @apply w-full flex flex-col justify-center h-full py-6 bg-dark-500 rounded-2xl shadow-sm border border-dark-400/30;
 
     h4 {
-      @apply text-xl md:text-2xl font-semibold mb-2 px-5;
+      @apply text-xl md:text-2xl font-bold mb-4 px-6 text-foreground tracking-tight;
     }
 
     .trending-coins-table {
       @apply bg-dark-500 overflow-hidden;
 
       .name-cell {
-        @apply font-bold;
+        @apply font-semibold text-foreground;
 
         a {
-          @apply pl-1 md:pl-2 py-1 md:py-2 xl:py-1 flex items-center gap-2 md:gap-3;
+          @apply pl-3 md:pl-6 py-2 flex items-center gap-3 hover:bg-dark-400/20 transition-colors;
 
           img {
-            @apply rounded-full size-8 md:size-9;
+            @apply rounded-full size-8 md:size-9 shadow-sm;
           }
 
           p {
@@ -339,11 +394,11 @@
       }
 
       .change-cell {
-        @apply font-medium py-4 pr-3 md:pr-5;
+        @apply font-medium py-4 pr-3 md:pr-6;
       }
 
       .price-cell {
-        @apply font-bold pr-5 text-sm max-w-full truncate;
+        @apply font-bold pr-6 text-sm max-w-full truncate text-foreground;
       }
 
       .price-change {
@@ -357,22 +412,22 @@
   }
 
   #categories-fallback {
-    @apply pt-8 mt-5 w-full bg-dark-500 rounded-xl overflow-hidden;
+    @apply pt-8 mt-5 w-full bg-dark-500 rounded-2xl shadow-sm border border-dark-400/30 overflow-hidden;
 
     h4 {
-      @apply text-xl md:text-2xl font-semibold mb-2 pl-5;
+      @apply text-xl md:text-2xl font-bold mb-4 pl-6;
     }
 
     .category-cell {
-      @apply pl-5 font-bold;
+      @apply pl-6 font-bold;
     }
 
     .top-gainers-cell {
-      @apply flex gap-1 mr-5;
+      @apply flex gap-1 mr-6;
     }
 
     .change-header-cell {
-      @apply font-medium;
+      @apply font-medium text-purple-100;
     }
 
     .change-cell {
@@ -388,39 +443,39 @@
     }
 
     .category-skeleton {
-      @apply h-4 w-32;
+      @apply h-4 w-32 bg-dark-400/50 rounded-md;
     }
 
     .coin-skeleton {
-      @apply h-7 w-7 rounded-full;
+      @apply h-7 w-7 rounded-full bg-dark-400/50;
     }
 
     .value-skeleton-sm {
-      @apply h-4 w-16;
+      @apply h-4 w-16 bg-dark-400/50 rounded-md;
     }
 
     .value-skeleton-md {
-      @apply h-4 w-20;
+      @apply h-4 w-20 bg-dark-400/50 rounded-md;
     }
 
     .value-skeleton-lg {
-      @apply h-4 w-24;
+      @apply h-4 w-24 bg-dark-400/50 rounded-md;
     }
 
     .change-icon {
-      @apply h-3.5 w-3.5 rounded-full;
+      @apply h-3.5 w-3.5 rounded-full bg-dark-400/50;
     }
   }
 
   #coin-overview-fallback {
-    @apply w-full h-full xl:col-span-2 px-2 bg-dark-500 rounded-xl;
+    @apply w-full h-full xl:col-span-2 px-6 py-6 bg-dark-500 rounded-2xl shadow-sm border border-dark-400/30;
 
     .header {
-      @apply flex-1 mb-2 flex gap-2 md:gap-3;
+      @apply flex-1 mb-4 flex gap-4;
     }
 
     .header-image {
-      @apply w-10 h-10 md:w-14 md:h-14 rounded-full;
+      @apply w-10 h-10 md:w-14 md:h-14 rounded-full bg-dark-400/50;
     }
 
     .info {
@@ -428,15 +483,15 @@
     }
 
     .header-line-sm {
-      @apply h-3 w-24 md:w-28;
+      @apply h-3 w-24 md:w-28 bg-dark-400/50 rounded-md;
     }
 
     .header-line-lg {
-      @apply h-7 w-36 md:w-44;
+      @apply h-7 w-36 md:w-44 bg-dark-400/50 rounded-md;
     }
 
     .period-button-skeleton {
-      @apply h-7 w-9 md:w-10 rounded-sm;
+      @apply h-7 w-9 md:w-10 rounded-md bg-dark-400/50;
     }
 
     .chart {
@@ -444,15 +499,15 @@
     }
 
     .chart-skeleton {
-      @apply h-full w-full rounded-xl;
+      @apply h-full w-full rounded-xl bg-dark-400/30;
     }
   }
 
   #trending-coins-fallback {
-    @apply w-full flex flex-col justify-center h-full py-4 bg-dark-500 rounded-xl;
+    @apply w-full flex flex-col justify-center h-full py-6 bg-dark-500 rounded-2xl shadow-sm border border-dark-400/30;
 
     h4 {
-      @apply text-xl md:text-2xl font-semibold mb-2 px-5;
+      @apply text-xl md:text-2xl font-bold mb-4 px-6;
     }
 
     .trending-coins-table {
@@ -463,23 +518,23 @@
       }
 
       .name-link {
-        @apply pl-1 md:pl-2 py-1 md:py-2 xl:py-1 flex items-center gap-2 md:gap-3;
+        @apply pl-3 md:pl-6 py-2 flex items-center gap-3;
       }
 
       .name-image {
-        @apply rounded-full size-8 md:size-9;
+        @apply rounded-full size-8 md:size-9 bg-dark-400/50;
       }
 
       .name-line {
-        @apply h-4 w-24;
+        @apply h-4 w-24 bg-dark-400/50 rounded-md;
       }
 
       .change-cell {
-        @apply font-medium py-4 pr-3 md:pr-5;
+        @apply font-medium py-4 pr-3 md:pr-6;
       }
 
       .price-cell {
-        @apply font-bold pr-5 text-sm max-w-full truncate;
+        @apply font-bold pr-6 text-sm max-w-full truncate;
       }
 
       .price-change {
@@ -488,20 +543,20 @@
     }
 
     .change-line {
-      @apply h-4 w-16;
+      @apply h-4 w-16 bg-dark-400/50 rounded-md;
     }
 
     .price-line {
-      @apply h-4 w-20;
+      @apply h-4 w-20 bg-dark-400/50 rounded-md;
     }
 
     .change-icon {
-      @apply h-3.5 w-3.5 rounded-full;
+      @apply h-3.5 w-3.5 rounded-full bg-dark-400/50;
     }
   }
 
   #coin-details-page {
-    @apply py-12 px-4 sm:px-6 mx-auto max-w-360 size-full grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 items-center gap-6 xl:gap-10 justify-center;
+    @apply py-12 px-4 sm:px-6 mx-auto max-w-360 size-full grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 items-start gap-6 xl:gap-8 justify-center;
 
     .primary {
       @apply size-full xl:col-span-2;
@@ -515,15 +570,15 @@
       @apply w-full mt-8 space-y-4;
 
       h4 {
-        @apply text-xl md:text-2xl font-semibold mb-2;
+        @apply text-xl md:text-2xl font-bold mb-4 tracking-tight;
       }
     }
 
     .exchange-table {
-      @apply bg-dark-500 rounded-xl overflow-hidden mt-5;
+      @apply bg-dark-500 rounded-2xl shadow-sm border border-dark-400/30 overflow-hidden mt-5;
 
       .exchange-name {
-        @apply text-green-500 font-bold;
+        @apply text-purple-600 font-bold; /* Use Primary Blue */
 
         a {
           @apply absolute inset-0 z-10;
@@ -531,19 +586,19 @@
       }
 
       .pair {
-        @apply font-medium h-full flex gap-1 py-4 pr-5 space-x-2;
+        @apply font-medium h-full flex gap-1 py-4 pr-5 space-x-2 text-purple-100;
 
         p {
-          @apply truncate max-w-20 md:max-w-30 h-full;
+          @apply truncate max-w-20 md:max-w-30 h-full text-foreground;
         }
       }
 
       .price-cell {
-        @apply font-medium;
+        @apply font-medium text-foreground;
       }
 
       .time-cell {
-        @apply pr-5 text-end;
+        @apply pr-5 text-end text-purple-100 text-sm;
       }
     }
 
@@ -551,21 +606,21 @@
       @apply w-full mt-8 space-y-4;
 
       h4 {
-        @apply text-xl md:text-2xl font-semibold mb-2 pb-3;
+        @apply text-xl md:text-2xl font-bold mb-2 pb-3 tracking-tight;
       }
 
       .details-grid {
-        @apply rounded-lg grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-2 gap-3 sm:gap-5;
+        @apply rounded-xl grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-2 gap-4;
 
         li {
-          @apply text-base bg-dark-500 px-5 py-6 rounded-lg flex flex-col gap-3;
+          @apply text-base bg-dark-500 border border-dark-400/50 px-6 py-6 rounded-2xl flex flex-col gap-2 shadow-sm;
 
           .label {
-            @apply text-purple-100;
+            @apply text-purple-100 text-sm font-medium;
           }
 
           .link {
-            @apply flex items-center text-green-500 gap-1;
+            @apply flex items-center text-purple-600 font-medium gap-1 hover:underline;
           }
         }
       }
@@ -576,18 +631,18 @@
     @apply py-12 px-4 sm:px-6 mx-auto max-w-360 size-full items-center gap-10 justify-center;
 
     .content {
-      @apply flex flex-col w-full space-y-5;
+      @apply flex flex-col w-full space-y-6;
     }
 
     h4 {
-      @apply text-2xl;
+      @apply text-2xl font-bold tracking-tight;
     }
 
     .coins-table {
-      @apply bg-dark-500 rounded-xl max-h-fit overflow-hidden;
+      @apply bg-dark-500 rounded-2xl shadow-sm border border-dark-400/30 max-h-fit overflow-hidden;
 
       .rank-cell {
-        @apply pl-5 max-w-20! py-5 font-medium text-purple-100;
+        @apply pl-6 max-w-20! py-5 font-medium text-purple-100;
 
         a {
           @apply absolute inset-0 z-10;
@@ -595,10 +650,10 @@
       }
 
       .token-cell {
-        @apply py-3 font-semibold;
+        @apply py-4 font-semibold text-foreground;
 
         .token-info {
-          @apply flex items-center gap-3;
+          @apply flex items-center gap-4;
 
           p {
             @apply max-w-full truncate;
@@ -607,7 +662,7 @@
       }
 
       .price-cell {
-        @apply py-4 font-medium;
+        @apply py-4 font-medium text-foreground;
       }
 
       .change-cell {
@@ -619,58 +674,58 @@
       }
 
       .market-cap-cell {
-        @apply pr-5 font-medium;
+        @apply pr-6 font-medium text-foreground;
       }
     }
   }
 
   #search-modal {
     .trigger {
-      @apply px-6 hover:bg-transparent! font-medium transition-all h-full cursor-pointer text-base text-purple-100 flex items-center gap-2;
+      @apply px-4 py-2 hover:bg-dark-400/50 rounded-lg font-medium transition-all h-full cursor-pointer text-sm text-purple-100 flex items-center gap-2 border border-transparent hover:border-dark-400/30;
     }
 
     .kbd {
-      @apply pointer-events-none hidden sm:inline-flex h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium opacity-100;
+      @apply pointer-events-none hidden sm:inline-flex h-5 select-none items-center gap-1 rounded border border-dark-400 bg-dark-400/30 px-1.5 font-sans text-[10px] font-medium text-purple-100 opacity-100;
     }
 
     .dialog {
-      @apply bg-dark-400! max-w-sm sm:max-w-md md:max-w-2xl mx-auto;
+      @apply bg-dark-500/95! backdrop-blur-xl max-w-sm sm:max-w-md md:max-w-2xl mx-auto rounded-2xl border border-dark-400/20 shadow-2xl;
     }
 
     .cmd-input {
-      @apply bg-dark-500!;
+      @apply bg-transparent! border-b border-dark-400/30 p-4!;
 
       input {
-        @apply placeholder:text-purple-100!;
+        @apply placeholder:text-purple-100! text-lg text-foreground!;
       }
     }
 
     .list {
-      @apply bg-dark-500 max-h-100;
+      @apply bg-transparent max-h-100 p-2;
     }
 
     .heading {
-      @apply flex items-center gap-2 text-purple-100;
+      @apply flex items-center gap-2 text-purple-100 px-2 py-2 text-xs font-semibold uppercase tracking-wider;
     }
 
     .group {
-      @apply bg-dark-500 text-purple-100;
+      @apply bg-transparent text-purple-100;
     }
   }
 
   .dialog {
     .empty {
-      @apply py-6 text-center text-sm text-gray-400;
+      @apply py-12 text-center text-sm text-purple-100;
     }
 
     .search-item {
-      @apply grid grid-cols-4 gap-4 items-center justify-between data-[selected=true]:bg-dark-400 transition-all! cursor-pointer hover:bg-dark-400 py-3;
+      @apply grid grid-cols-4 gap-4 items-center justify-between data-[selected=true]:bg-purple-600 data-[selected=true]:text-white rounded-lg transition-all! cursor-pointer hover:bg-dark-400/50 px-4 py-3 mx-1 my-0.5;
 
       .coin-info {
-        @apply flex gap-4 items-center col-span-2;
+        @apply flex gap-3 items-center col-span-2;
 
         img {
-          @apply size-9 rounded-full;
+          @apply size-8 rounded-full shadow-sm;
         }
 
         div {
@@ -678,79 +733,79 @@
         }
 
         .coin-symbol {
-          @apply text-sm text-purple-100 uppercase;
+          @apply text-xs text-purple-100 group-data-[selected=true]:text-white/80 uppercase font-bold;
         }
       }
 
       .coin-price {
-        @apply font-semibold text-sm lg:text-base;
+        @apply font-semibold text-sm lg:text-base text-right;
       }
 
       .coin-change {
-        @apply flex gap-1 text-sm lg:text-base items-center font-medium;
+        @apply flex gap-1 text-sm lg:text-base items-center justify-end font-medium;
       }
     }
   }
 
   #converter {
-    @apply w-full space-y-5;
+    @apply w-full space-y-6;
 
     h4 {
-      @apply text-2xl font-semibold;
+      @apply text-2xl font-bold tracking-tight;
     }
 
     .panel {
-      @apply space-y-2 bg-dark-500 px-5 py-7 rounded-lg;
+      @apply space-y-4 bg-dark-500 px-6 py-8 rounded-2xl shadow-sm border border-dark-400/30;
     }
 
     .input-wrapper {
-      @apply bg-dark-400 h-12 w-full rounded-md flex items-center justify-between py-4 pr-4;
+      @apply bg-dark-400/50 h-14 w-full rounded-xl flex items-center justify-between py-2 pr-4 transition-colors focus-within:ring-2 focus-within:ring-purple-600/20;
 
       .input {
-        @apply flex-1 text-lg! border-none font-medium bg-dark-400! focus-visible:ring-0 shadow-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none;
+        @apply flex-1 text-xl! border-none font-semibold bg-transparent! focus-visible:ring-0 shadow-none text-foreground p-4 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none;
       }
 
       .coin-info {
-        @apply flex items-center gap-1;
+        @apply flex items-center gap-2 bg-white dark:bg-black/20 px-2 py-1 rounded-lg shadow-sm;
 
         p {
-          @apply font-semibold text-base text-purple-100;
+          @apply font-bold text-base text-foreground;
         }
       }
     }
 
     .divider {
-      @apply relative flex justify-center items-center my-4;
+      @apply relative flex justify-center items-center my-2;
 
       .line {
-        @apply h-px z-10 w-full bg-dark-400 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2;
+        @apply h-px z-10 w-full bg-dark-400/50 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2;
       }
 
       .icon {
-        @apply size-8 z-20 bg-dark-400 rounded-full p-2 text-green-500;
+        @apply size-10 z-20 bg-dark-500 border border-dark-400/50 shadow-sm rounded-full p-2.5 text-purple-600 transition-transform hover:rotate-180 duration-500 cursor-pointer;
       }
     }
 
     .output-wrapper {
-      @apply bg-dark-400 h-12 w-full rounded-md flex items-center justify-between py-4 pl-4;
+      @apply bg-dark-400/50 h-14 w-full rounded-xl flex items-center justify-between py-2 pl-4 transition-colors;
 
       p {
-        @apply text-base font-medium;
+        @apply text-xl font-semibold text-foreground pl-2;
       }
 
       .select-trigger {
-        @apply w-fit! border-none! cursor-pointer! h-12! bg-dark-400! hover:bg-dark-400! focus-visible:ring-0!;
+        @apply w-fit! border-none! cursor-pointer! h-12! bg-transparent! hover:bg-transparent! focus-visible:ring-0! mr-2;
 
         .select-value {
-          @apply font-semibold! text-xs! text-purple-100!;
+          @apply font-bold! text-base! text-foreground! bg-white dark:bg-black/20 px-3 py-1.5 rounded-lg shadow-sm;
         }
       }
 
       .select-content[data-converter] {
-        @apply bg-dark-400 max-h-125;
+        @apply bg-dark-500/95 backdrop-blur-xl border border-dark-400/30 shadow-xl rounded-xl max-h-125;
 
         .select-item {
-          @apply cursor-pointer hover:bg-dark-500!;
+          @apply cursor-pointer hover:bg-purple-600 hover:text-white rounded-md m-1 transition-colors;
         }
       }
     }
@@ -760,77 +815,77 @@
     @apply mt-8 w-full;
 
     .tabs-list {
-      @apply size-full! p-1! bg-transparent! border-b! border-dark-500! rounded-none!;
+      @apply size-full! p-1! bg-transparent! border-b! border-dark-400/30! rounded-none!;
     }
 
     .tabs-trigger {
-      @apply data-[state=active]:border-none! data-[state=active]:bg-transparent! flex justify-start! mb-0! py-2! text-lg! font-semibold! md:text-2xl!;
+      @apply data-[state=active]:border-b-2! data-[state=active]:border-purple-600! data-[state=active]:text-foreground! data-[state=active]:shadow-none! data-[state=active]:bg-transparent! flex justify-start! mb-0! py-3! px-1! text-lg! font-bold! md:text-2xl! text-purple-100 transition-colors hover:text-foreground;
     }
 
     .tabs-content {
-      @apply gap-4! mt-2! md:gap-5! sm:grid-cols-2! lg:grid-cols-1! grid!;
+      @apply gap-4! mt-6! md:gap-6! sm:grid-cols-2! lg:grid-cols-1! grid!;
     }
   }
 
   #coin-header {
-    @apply space-y-5 w-full;
+    @apply space-y-6 w-full;
 
     h3 {
-      @apply text-3xl font-medium;
+      @apply text-3xl font-medium tracking-tight text-foreground;
     }
 
     .info {
-      @apply flex gap-3 items-center;
+      @apply flex gap-4 items-center;
 
       img {
-        @apply size-11.25 sm:size-12.5 xl:size-19.25;
+        @apply size-11.25 sm:size-12.5 xl:size-19.25 rounded-full shadow-md;
       }
     }
 
     .price-row {
-      @apply flex gap-4;
+      @apply flex gap-4 items-baseline;
 
       h1 {
-        @apply text-3xl sm:text-5xl xl:text-6xl font-semibold;
+        @apply text-3xl sm:text-5xl xl:text-6xl font-bold tracking-tight text-foreground;
       }
     }
 
     .stats {
-      @apply grid grid-cols-3 mt-8 gap-4 sm:gap-6 w-fit;
+      @apply grid grid-cols-3 mt-8 gap-4 sm:gap-6 w-fit bg-dark-500 px-6 py-4 rounded-2xl shadow-sm border border-dark-400/30;
 
       li {
-        @apply text-base border-r last:border-none border-purple-600 flex flex-col gap-2;
+        @apply text-base border-r last:border-none border-dark-400 flex flex-col gap-1 pr-6;
 
         .label {
-          @apply text-purple-100 max-sm:text-sm;
+          @apply text-purple-100 max-sm:text-sm font-medium;
         }
 
         .value {
-          @apply flex gap-1 flex-1 items-end text-base font-medium;
+          @apply flex gap-1 flex-1 items-end text-lg font-bold text-foreground;
         }
       }
     }
   }
 
   #coin-overview {
-    @apply w-full h-full xl:col-span-2 px-2 bg-dark-500 rounded-xl;
+    @apply w-full h-full xl:col-span-2 px-6 py-4 bg-dark-500 rounded-2xl shadow-sm border border-dark-400/30;
 
     .header {
-      @apply flex-1 mb-2 flex gap-2 md:gap-3;
+      @apply flex-1 mb-4 flex gap-4 items-center;
 
       img {
-        @apply w-10 h-10 md:w-14 md:h-14;
+        @apply w-10 h-10 md:w-14 md:h-14 rounded-full shadow-sm;
       }
 
       .info {
-        @apply flex flex-col;
+        @apply flex flex-col justify-center;
 
         p {
-          @apply flex text-purple-100 text-xs md:text-sm w-fit;
+          @apply flex text-purple-100 text-xs md:text-sm w-fit font-medium bg-dark-400/30 px-2 py-0.5 rounded-md mb-1;
         }
 
         h1 {
-          @apply text-xl md:text-2xl font-semibold;
+          @apply text-xl md:text-2xl font-bold tracking-tight text-foreground;
         }
       }
     }
@@ -838,42 +893,42 @@
 
   #coins-pagination {
     .pagination-content {
-      @apply flex w-full;
+      @apply flex w-full items-center gap-2;
     }
 
     .pagination-control {
-      @apply bg-dark-400 rounded-sm py-1;
+      @apply bg-dark-500 border border-dark-400/30 hover:bg-dark-400/50 rounded-lg py-2 px-3 shadow-sm transition-all;
 
       &.prev {
-        @apply pr-2;
+        @apply pr-3;
       }
 
       &.next {
-        @apply pl-2;
+        @apply pl-3;
       }
     }
 
     .control-button {
-      @apply cursor-pointer;
+      @apply cursor-pointer text-foreground font-medium;
     }
 
     .control-disabled {
-      @apply pointer-events-none opacity-50;
+      @apply pointer-events-none opacity-40;
     }
 
     .pagination-pages {
       @apply flex flex-1 justify-center gap-2;
 
       .ellipsis {
-        @apply px-3 py-2 text-base;
+        @apply px-3 py-2 text-base text-purple-100;
       }
 
       .page-link {
-        @apply hover:bg-dark-400! rounded-sm text-base cursor-pointer;
+        @apply hover:bg-dark-400/50 rounded-lg text-base cursor-pointer w-10 h-10 flex items-center justify-center font-medium transition-colors text-purple-100;
       }
 
       .page-link-active {
-        @apply bg-green-500! text-dark-900 font-semibold;
+        @apply bg-purple-600! text-white! font-bold shadow-md;
       }
     }
   }
@@ -882,14 +937,14 @@
     @apply size-full xl:col-span-2;
 
     .divider {
-      @apply my-8! bg-purple-600!;
+      @apply my-8! h-px! bg-dark-400!;
     }
 
     .trend {
       @apply w-full;
 
       h4 {
-        @apply text-xl md:text-2xl font-semibold mb-2 mt-2 pl-2;
+        @apply text-xl md:text-2xl font-bold mb-4 mt-2 pl-2 tracking-tight;
       }
     }
 
@@ -897,40 +952,40 @@
       @apply w-full my-8 space-y-4;
 
       h4 {
-        @apply text-xl md:text-2xl font-semibold mb-2;
+        @apply text-xl md:text-2xl font-bold mb-4 tracking-tight;
       }
     }
 
     .trades-table {
-      @apply bg-dark-500 mt-5 rounded-xl overflow-hidden;
+      @apply bg-dark-500 mt-5 rounded-2xl shadow-sm border border-dark-400/30 overflow-hidden;
 
       .price-cell {
-        @apply pl-5 py-5 font-medium;
+        @apply pl-6 py-5 font-medium text-foreground;
       }
 
       .amount-cell {
-        @apply py-4 font-medium;
+        @apply py-4 font-medium text-purple-100;
       }
 
       .value-cell {
-        @apply font-medium;
+        @apply font-medium text-foreground;
       }
 
       .type-cell {
-        @apply font-medium;
+        @apply font-bold;
       }
 
       .time-cell {
-        @apply pr-5;
+        @apply pr-6 text-purple-100 text-sm;
       }
     }
   }
 }
 
-/* Custom Scrollbar Styles */
+/* Custom Scrollbar Styles - Softened for minimal look */
 .custom-scrollbar::-webkit-scrollbar {
-  width: 7px;
-  height: 7px;
+  width: 6px;
+  height: 6px;
 }
 
 .custom-scrollbar::-webkit-scrollbar-track {
@@ -938,33 +993,53 @@
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background: #1e2833;
-  border-radius: 8px;
+  background: #d1d5db; /* Light gray for light mode default */
+  border-radius: 10px;
+}
+
+:is(.dark) .custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #4b5563; /* Darker gray for dark mode */
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: #171a34;
+  background: #9ca3af;
+}
+
+:is(.dark) .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #6b7280;
 }
 
 /* Table Custom Scrollbar */
-.custom-scrollbar [data-slot='table-container'] {
+.custom-scrollbar [data-slot="table-container"] {
   overflow-y: auto;
 }
 
-.custom-scrollbar [data-slot='table-container']::-webkit-scrollbar {
-  width: 7px;
-  height: 7px;
+.custom-scrollbar [data-slot="table-container"]::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
 }
 
-.custom-scrollbar [data-slot='table-container']::-webkit-scrollbar-track {
+.custom-scrollbar [data-slot="table-container"]::-webkit-scrollbar-track {
   background: transparent;
 }
 
-.custom-scrollbar [data-slot='table-container']::-webkit-scrollbar-thumb {
-  background: #1e2833;
-  border-radius: 8px;
+.custom-scrollbar [data-slot="table-container"]::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 10px;
 }
 
-.custom-scrollbar [data-slot='table-container']::-webkit-scrollbar-thumb:hover {
-  background: #171a34;
+:is(.dark)
+  .custom-scrollbar
+  [data-slot="table-container"]::-webkit-scrollbar-thumb {
+  background: #4b5563;
+}
+
+.custom-scrollbar [data-slot="table-container"]::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af;
+}
+
+:is(.dark)
+  .custom-scrollbar
+  [data-slot="table-container"]::-webkit-scrollbar-thumb:hover {
+  background: #6b7280;
 }
