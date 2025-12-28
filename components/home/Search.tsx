@@ -181,7 +181,7 @@ export default function SearchCommand({ isOpen, onClose }: SearchCommandProps) {
                   </p>
                 </div>
               )}
-            </> 
+            </>
           )}
         </div>
 
